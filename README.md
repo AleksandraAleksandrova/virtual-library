@@ -49,7 +49,7 @@ The application provides full functionality for adding, viewing, and searching m
 ## 🧠 Technologies Used
 - **Language:** C++  
 - **Standard Library:** `<iostream>`, `<fstream>`, `<vector>`, `<string>`  
-- **Development Tools:** GitHub / GitLab, g++, Visual Studio Code (or similar)
+- **Development Tools:** GitHub / GitLab, g++, Visual Studio Code
 
 ---
 

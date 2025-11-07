@@ -1,0 +1,22 @@
+# Ignore compiled binaries
+*.exe
+*.out
+*.obj
+*.o
+
+# Ignore temporary build files
+*.log
+*.tmp
+*.bak
+
+# Ignore IDE or editor-specific files
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+
+# Ignore backups and test data
+/data/
+*.txt~
