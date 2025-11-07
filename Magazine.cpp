@@ -5,26 +5,49 @@ using namespace std;
 class Magazine : public Media {
 private:
     int issueNumber;
-    string publicationMonth;
+    int month;
+
+    void validateIssueNumber(int i) {
+        if (i <= 0) {
+            throw invalid_argument("Issue number must be positive.");
+        }
+    }
+
+    void validateMonth(int m) {
+        if ((m < 1) || (m > 12)) {
+            throw invalid_argument("Month must be between 1 and 12.");
+        }
+    }
 
 public:
-    Magazine() : Media(), issueNumber(0), publicationMonth("") {}
+    Magazine(string author, string title, int year, bool available, int issueNumber, int month)
+        : Media("Magazine", author, title, year, available), issueNumber(issueNumber), month(month) {
+        validateIssueNumber(issueNumber);
+        validateMonth(month);
+    }
 
-    Magazine(const string& author, const string& title, int year, bool available,
-             int issueNumber, const string& publicationMonth)
-        : Media("Magazine", author, title, year, available),
-          issueNumber(issueNumber), publicationMonth(publicationMonth) {}
+    int getIssueNumber() const {
+        return issueNumber;
+    }
 
-    int getIssueNumber() const { return issueNumber; }
-    void setIssueNumber(int num) { issueNumber = num; }
+    void setIssueNumber(int i) {
+        validateIssueNumber(i);
+        issueNumber = i;
+    }
 
-    string getPublicationMonth() const { return publicationMonth; }
-    void setPublicationMonth(const string& month) { publicationMonth = month; }
+    int getMonth() const {
+        return month;
+    }
 
-    friend ostream& operator<<(ostream& os, const Magazine& m) {
-        os << static_cast<const Media&>(m)
-           << "Issue: " << m.issueNumber << "\n"
-           << "Month: " << m.publicationMonth << "\n";
+    void setMonth(int m) {
+        validateMonth(m);
+        month = m;
+    }
+
+    friend ostream& operator<<(ostream& os, const Magazine& mg) {
+        os << static_cast<const Media&>(mg)
+           << " | Issue: " << mg.issueNumber
+           << " | Month: " << mg.month;
         return os;
     }
 };
