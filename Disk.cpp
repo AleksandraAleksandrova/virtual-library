@@ -20,8 +20,8 @@ private:
     }
 
 public:
-    Disk(string type, string author, string title, int year, bool available, string format, int duration)
-        : Media(type, author, title, year, available), format(format), duration(duration) {
+    Disk(string author, string title, int year, bool available, string format, int duration)
+        : Media("Disk", author, title, year, available), format(format), duration(duration) {
         validateFormat(format);
         validateDuration(duration);
     }
