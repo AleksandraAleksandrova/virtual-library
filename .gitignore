@@ -19,4 +19,4 @@
 
 # Ignore backups and test data
 /data/
-*.txt~
+*.txt

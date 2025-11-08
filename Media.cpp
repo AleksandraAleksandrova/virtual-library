@@ -61,6 +61,8 @@ public:
         this->available = available;
     }
 
+    virtual ~Media() = default;
+
     string getType() const {
         return type;
     }
